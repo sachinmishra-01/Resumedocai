@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Libertinus+Mono&family=Manufacturing+Consent&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Add this to your main CSS file (e.g., src/index.css or src/App.css) */
+
+.loading-overlay {
+  position: fixed; /* Positions it relative to the viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
+  display: flex;
+  flex-direction: column; /* Stack spinner and message vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  z-index: 9999; /* Ensure it's on top of almost everything */
+  color: white;
+  text-align: center;
+  font-size: 1.4rem; /* Slightly larger text */
+  padding: 20px;
+  pointer-events: all; /* Ensure it captures mouse events */
+}
+
+.spinner {
+  border: 6px solid rgba(255, 255, 255, 0.3); /* Light grey border */
+  border-top: 6px solid #02818C; /* Your tealblue color */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite; /* Spin animation */
+  margin-bottom: 25px; /* Space between spinner and message */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
