@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         tealblue: "#02818C",
         navyblue: '#092347',
+        customBlue: '#394d6b',
         fontFamily: {
           poppins: ["Poppins", "sans-serif"],
         },

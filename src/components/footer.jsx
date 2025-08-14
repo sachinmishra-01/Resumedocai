@@ -2,7 +2,7 @@ import { Mail, Twitter, Github, Linkedin } from "lucide-react";
 
 function Footer() {
   return (
-    <footer className="bg-gray-900 text-white px-6 py-8">
+    <footer className="bg-customBlue text-white px-6 py-8">
       <div className="max-w-7xl mx-auto grid gap-6 md:grid-cols-4 text-sm">
         
         {/* Logo */}
@@ -18,7 +18,7 @@ function Footer() {
             <li><a href="/about" className="hover:text-white">About</a></li>
             <li><a href="/services" className="hover:text-white">Services</a></li>
             <li><a href="/privacy" className="hover:text-white">Privacy Policy</a></li>
-            <li><a href="/contact" className="hover:text-white">Contact</a></li>
+            <li><a href="/Contact" className="hover:text-white">Contact</a></li>
           </ul>
         </div>
 

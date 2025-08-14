@@ -1,34 +1,49 @@
-// backend/server.js
-
 import express from "express";
 import multer from "multer";
-import cors from "cors"; // <<< Import cors middleware
-import dotenv from 'dotenv'; // <<< Import dotenv for environment variables
+import cors from "cors";
+import dotenv from 'dotenv';
 
+// Import local modules using ES Module syntax
+import authRoutes from './routes/authRoutes.js';
 import analyzerController from "./controllers/analyzerController.js";
+import { protect } from './middleware/authMiddleware.js'; // This is already here, which is correct
+// Assuming you have this middleware from our previous discussion
+import { errorHandler } from "./middleware/errorMiddleware.js"; 
+import connectDB from './config/db.js'; // Assuming you have a DB connection file
 
-// Load environment variables from .env file
-dotenv.config(); // <<< Configure dotenv
+// Load environment variables from .env file at the very top
+dotenv.config();
+
+// Connect to Database
+connectDB();
 
 const app = express();
 const upload = multer({ storage: multer.memoryStorage() });
 
-// Enable CORS for all origins (for development)
-// This is crucial to fix the CORS error you're getting
-app.use(cors()); // <<< Use the cors middleware
-
-// Middleware to parse JSON bodies (good practice for other potential routes)
+// --- Middleware ---
+// Enable CORS for all origins
+app.use(cors());
+// Middleware to parse JSON bodies
 app.use(express.json());
 
-// Your route for resume analysis
-app.post("/api/analyze", upload.single("resume"), analyzerController);
+// --- API Routes ---
+app.use('/api/auth', authRoutes); // Authentication routes
+
+// --- THIS IS THE LINE TO CHANGE ---
+// Add the 'protect' middleware right after the path.
+// This ensures the user is logged in before they can upload a resume.
+app.post("/api/analyze", protect, upload.single("resume"), analyzerController);
 
 // Simple route to check if the server is running
 app.get("/", (req, res) => {
   res.send("Backend server is running!");
 });
 
-const PORT = process.env.PORT || 5000; // Use PORT from .env or default to 5000
+// --- Error Handling Middleware ---
+// This should be the last piece of middleware
+app.use(errorHandler);
+
+const PORT = process.env.PORT || 5000;
 
 // Start the server
 app.listen(PORT, () => {

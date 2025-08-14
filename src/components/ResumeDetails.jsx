@@ -60,7 +60,7 @@ const ResumeDetails = () => {
 
   return (
     <div>
-      {/* Top Horizontal Banner */}
+      
       <div className="w-full bg-gradient-to-br from-blue-950 to-tealblue text-white py-8 px-4 text-center mb-6">
         <h1 className="text-3xl md:text-4xl font-extrabold">You’re almost there!</h1>
         <p className="text-sm md:text-base mt-2">We’ll help you enhance your resume and impress hiring managers.</p>
@@ -85,7 +85,6 @@ const ResumeDetails = () => {
           </div>
         </div>
 
-        {/* AI Feedback Summary */}
         <div className="w-full md:w-[30%] bg-white rounded shadow min-h-[300px] overflow-auto">
           <div className="p-4 border-b">
             <h2 className="text-xl font-bold text-center md:text-left">AI Feedback Summary</h2>

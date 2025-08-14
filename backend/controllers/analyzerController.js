@@ -1,20 +1,12 @@
-// backend/controllers/analyzerController.js
-
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import dotenv from 'dotenv';
+import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf.mjs'; 
+import { Canvas, createCanvas, Image, ImageData } from 'canvas'; 
 
-// --- NEW PDF IMPORTS ---
-import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf.mjs'; // Use the mjs version for ESM
-import { Canvas, createCanvas, Image, ImageData } from 'canvas'; // Required for pdfjs-dist in Node.js
-// Set up PDF.js worker (important for performance and avoiding main thread blocking)
 pdfjsLib.GlobalWorkerOptions.workerSrc = `pdfjs-dist/legacy/build/pdf.worker.mjs`;
 
-// Provide PDF.js with a minimal DOM-like environment for canvas operations
-// This is a workaround for pdfjs-dist expecting a browser environment
-global.Buffer = global.Buffer || require('buffer').Buffer; // Ensure Buffer is available
+global.Buffer = global.Buffer || require('buffer').Buffer; 
 Object.assign(global, { Canvas, Image, ImageData });
-// --- END NEW PDF IMPORTS ---
-
 
 // Load environment variables from .env file
 dotenv.config();
