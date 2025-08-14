@@ -28,7 +28,8 @@ const Login = () => {
     setError(''); 
 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', formData);
+      const apiUrl = `${import.meta.env.VITE_API_URL}/api/auth/login`;
+      const response = await axios.post(apiUrl, formData);
       localStorage.setItem('token', response.data.token);
       
       
