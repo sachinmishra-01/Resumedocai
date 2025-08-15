@@ -51,8 +51,8 @@ const VerifyOtp = () => {
     setLoading(true);
     setResendStatus('Sending...');
     try {
-      const apiUrl1 = `${import.meta.env.VITE_API_URL}/api/auth/resend-otp`;
-      await axios.post(apiUrl1, { email });
+      const apiUrl = `${import.meta.env.VITE_API_URL}/api/auth/resend-otp`;
+      await axios.post(apiUrl, { email });
       setResendStatus('A new OTP has been sent.');
       setCooldown(60);
     } catch (err) {

@@ -36,7 +36,8 @@ const ResumeUpload = () => {
         };
 
         try {
-            const response = await axios.post('http://localhost:5000/api/analyze', formData, config);
+            const apiUrl = `${import.meta.env.VITE_API_URL}/api/auth/analyze`;
+            const response = await axios.post(apiUrl, formData, config);
             navigate('/resume-details', { state: { analysis: response.data } });
 
         } catch (err) {
