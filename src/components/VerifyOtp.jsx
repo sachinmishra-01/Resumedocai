@@ -35,7 +35,8 @@ const VerifyOtp = () => {
     setError('');
     
     try {
-      await axios.post('http://localhost:5000/api/auth/verify-otp', { email, otp });
+      const apiUrl = `${import.meta.env.VITE_API_URL}/api/auth/verify-otp`;
+      await axios.post(apiUrl, { email, otp });
       navigate('/login');
     } catch (err) {
       setError(err.response?.data?.msg || 'An error occurred during verification.');
@@ -50,8 +51,8 @@ const VerifyOtp = () => {
     setLoading(true);
     setResendStatus('Sending...');
     try {
-      
-      await axios.post('http://localhost:5000/api/auth/resend-otp', { email });
+      const apiUrl1 = `${import.meta.env.VITE_API_URL}/api/auth/resend-otp`;
+      await axios.post(apiUrl1, { email });
       setResendStatus('A new OTP has been sent.');
       setCooldown(60);
     } catch (err) {
