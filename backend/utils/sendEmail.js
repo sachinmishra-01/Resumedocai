@@ -11,7 +11,7 @@ const sendEmail = async (options) => {
     });
 
     const mailOptions = {
-        from: 'Your App Name <noreply@yourapp.com>',
+        from: 'ResumeDocAi <noreply@yourapp.com>',
         to: options.email,
         subject: options.subject,
         text: options.message,

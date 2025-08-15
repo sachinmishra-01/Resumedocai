@@ -123,7 +123,6 @@ export const login = async (req, res, next) => {
 };
 
 
-// --- ADD THIS ENTIRE NEW FUNCTION ---
 // @desc    Resend verification OTP
 export const resendOtp = async (req, res, next) => {
     const errors = validationResult(req);
@@ -146,7 +145,7 @@ export const resendOtp = async (req, res, next) => {
 
         // Generate a new OTP and set its expiry time
         const otp = crypto.randomInt(100000, 999999).toString();
-        const otpExpires = Date.now() + 10 * 60 * 1000; // 10 minutes from now
+        const otpExpires = Date.now() + 10 * 60 * 1000; 
 
         user.otp = otp;
         user.otpExpires = otpExpires;

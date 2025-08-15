@@ -43,7 +43,7 @@ const analyzerController = async (req, res) => {
                 const page = await pdfDocument.getPage(i);
                 const textContent = await page.getTextContent();
                 const pageText = textContent.items.map(item => item.str).join(' ');
-                resumeText += pageText + '\n'; // Add newline between pages
+                resumeText += pageText + '\n';
             }
 
             if (!resumeText || resumeText.trim() === "") {
