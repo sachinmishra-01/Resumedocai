@@ -1,9 +1,3 @@
-Of course. A great README is essential for showcasing your project on GitHub, especially for interviews. It acts as the front page and explains your work to recruiters and other developers.
-
-Here is a complete, professional README tailored specifically for your ResumeDocAI project. You can copy and paste this into a file named `README.md` in the root of your project folder.
-
------
-
 # ResumeDocAI - AI-Powered ATS Resume Checker 🚀
 
  **Live Demo:** [**resumedocai.vercel.app**](https://www.google.com/search?q=https://your-live-site-url.com) \#\# 📜 Project Overview
